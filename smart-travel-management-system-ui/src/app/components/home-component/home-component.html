@@ -1,0 +1,26 @@
+<div id="bg-image">
+    <form class="homePageButtons">
+
+        <mat-form-field appearance="outline" class="field">
+            <mat-icon matPrefix>location_on</mat-icon>
+            <input matInput name="source" [(ngModel)]="source" placeholder="Source">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="field">
+            <mat-icon matPrefix>location_on</mat-icon>
+            <input matInput name="destination" [(ngModel)]="destination" placeholder="Destination">
+        </mat-form-field>
+
+       
+        <mat-form-field appearance="outline" class="field">
+  <input matInput [matDatepicker]="picker" placeholder="Choose a date" name="tripDate" [(ngModel)]="tripDate">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
+
+        <button mat-raised-button color="primary" type="button" 
+        class="search-btn" (click)="homeSearchButton()">
+            Search
+        </button>
+    </form>
+</div>

@@ -1,0 +1,24 @@
+.navbar {
+    /* background-color: navy; */
+    background-color:#4B0082;
+    height: 10vh;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+#navButtons {
+    display: flex;
+    gap: 10px;
+}
+
+#home,
+#about,
+#contact {
+    background-color: #4B0082;
+    border: none;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}

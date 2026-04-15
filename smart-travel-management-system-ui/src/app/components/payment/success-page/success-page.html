@@ -1,0 +1,62 @@
+<div class="successMain">
+    <h3>Your booking sucessfully completed..!</h3>
+    <div class="ticket">
+        <div class="finalTicket">
+            <div class="grid-item">
+                <span class="title"><strong><u>Ticket</u></strong></span>
+            </div>
+            <div class="grid-item">
+                <span class="title"><u>Date:</u></span>
+                <span class="value"> <u>{{ tripDto.tripDate}}</u></span>
+            </div>
+            <div class="grid-item">
+                <span class="title">Source:</span>
+                <span class="value"> {{ tripDto.source }} | {{ getSourceTime() }}</span>
+            </div>
+
+            <div class="grid-item">
+                <span class="title">Destination:</span>
+                <span class="value"> {{ tripDto.destination }} | {{ getDestinationTime() }}</span>
+            </div>
+
+            <div class="grid-item">
+                <span class="title">Travel Name:</span>
+                <span class="value"> {{ tripDto.travel.travelName }}</span>
+            </div>
+
+            <div class="grid-item">
+                <span class="title">Travel Number:</span>
+                <span class="value"> {{ tripDto.travel.travelNumber }}</span>
+            </div>
+
+        </div>
+        <!-- ---------------  Passender Details ------------------ -->
+
+
+        <div class="passengerDetails">
+            <h3>Passenger Details</h3>
+            <h3></h3>
+
+            <table class="passenger-table">
+                <thead>
+                    <tr>
+                        <th>Seat No</th>
+                        <th>Seat Type</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let seat of selectedSeats">
+                        <td>{{ seat.seatNumber }}</td>
+                        <td>{{ seat.seatType || 'Seater' }}</td>
+                        <td>{{ seat.passengerName }}</td>
+                        <td>{{ seat.age }}</td>
+                        <td>{{ seat.gender }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

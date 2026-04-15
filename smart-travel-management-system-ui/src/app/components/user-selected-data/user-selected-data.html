@@ -1,0 +1,158 @@
+<div class="userSelectedData-container">
+  <mat-card class="mat">
+
+    <div class="tripDetails">
+      <!-- <mat-card-title>Trip Details</mat-card-title> -->
+      <p><strong>{{travelDto.travelName}} : [ {{travelDto.travelNumber}} ]</strong></p>
+      <div class="trip">
+        <div class="source">
+          <p><strong>{{ boardingPoint.place }}</strong></p>
+          <p>{{tripDto.tripDate|date:'dd MMM yyyy'}}, <span class="time">{{boardingPoint.time }}</span></p>
+        </div>
+
+        <div class="arrow-stop">
+          <span class="material-symbols-outlined">
+            trending_flat
+          </span>
+          <p>view stops</p>
+
+          <!-- 🔥 Hover Stops Popup -->
+          <div class="stops-popup">
+            <div *ngFor="let stop of filteredStops" class="stop-item">
+              <span class="dot"></span>
+              <span class="place">{{ stop.place }}</span>
+              <span class="time">{{ stop.time }}</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- <div class="destination">
+          <p><strong>{{ droppingPoint.place }}</strong></p>
+          <p>{{tripDto.tripDate}}, <span class="time">{{droppingPoint.time }}</span></p>
+        </div> -->
+
+        <div class="destination">
+  <p><strong>{{ droppingPoint.place }}</strong></p>
+  <!-- Use arrivalDate variable with date pipe -->
+  <p>{{ arrivalDate | date: 'dd MMM yyyy' }}, <span class="time">{{ droppingPoint.time }}</span></p>
+</div>
+
+
+      </div>
+    </div>
+  </mat-card>
+
+  <mat-card class="mat">
+    <div class="contact">
+      <mat-card-title>Contact Details</mat-card-title>
+      <mat-card-subtitle>Your Ticket and Bus Info will be sent here.</mat-card-subtitle>
+
+      <div class="input-row">
+
+        <!-- Mobile -->
+        <mat-form-field class="full-width">
+          <mat-icon matPrefix>call</mat-icon>
+          <mat-label>Mobile Number</mat-label>
+          <input matInput #mobile="ngModel" name="mobile" placeholder="Mobile Number"
+            [(ngModel)]="contactDetails.mobile" [disabled]="isLocked" required maxlength="10" pattern="^[0-9]{10}$">
+
+          <!-- Message for Required -->
+          <mat-error *ngIf="mobile.errors?.['required']">
+            Mobile number is required
+          </mat-error>
+
+          <!-- Message for Pattern/Format -->
+          <mat-error *ngIf="mobile.errors?.['pattern']">
+            Enter valid mobile number
+          </mat-error>
+        </mat-form-field>
+
+        <!----------- Email ------------------------>
+        <mat-form-field class="full-width">
+          <mat-icon matPrefix>mail</mat-icon>
+          <mat-label>Email ID</mat-label>
+          <input matInput #email="ngModel" name="email" placeholder="Email ID" 
+          [(ngModel)]="contactDetails.email" [disabled]="isLocked" required email>
+
+<!-- Message for required -->
+          <mat-error *ngIf="email.errors?.['required']">Email ID is required</mat-error>
+          <!-- Message for Format -->
+          <mat-error *ngIf="email.errors?.['email']">Please enter a valid email address</mat-error>
+        </mat-form-field>
+
+      </div>
+
+    </div>
+  </mat-card>
+
+  <mat-card class="mat">
+    <div class="passenger">
+      <mat-card-title>Passenger Details</mat-card-title>
+      <mat-card-subtitle>Fill passenger details corresponding to the seats</mat-card-subtitle>
+      <div class="input-row" *ngFor="let seat of selectedSeats; let i = index">
+
+        <div class="seats">
+
+          <!-- ✅ Dynamic Icon -->
+          <span class="material-symbols-outlined">
+            {{ isSleeper(seat.seatNumber)
+            ? 'airline_seat_flat'
+            : 'airline_seat_recline_normal' }}
+          </span>
+          <span class="seat">
+            {{ seat.seatNumber }}
+          </span>
+        </div>
+
+        <!-- full Name -->
+        <mat-form-field class="full-width">
+           <mat-label>Full Name</mat-label>
+          <input matInput #fullName="ngModel" name="fullName" placeholder="Full Name" [(ngModel)]="seat.passengerName" [disabled]="isLocked" required>
+          <!-- ✅ ERROR -->
+          <mat-error *ngIf="fullName.errors?.['required']">
+            Full Name is required
+          </mat-error>
+        </mat-form-field>
+
+        <!-- Age -->
+        <mat-form-field class="full-width">
+          <mat-label>Age</mat-label>
+          <input matInput placeholder="Age" [(ngModel)]="seat.age" [disabled]="isLocked">
+        </mat-form-field>
+
+        <!-- gender -->
+        <mat-form-field class="full-width">
+          <mat-label>Gender</mat-label>
+          <mat-select #gender="ngModel" name="gender" [(ngModel)]="seat.gender" [disabled]="isLocked" required>
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+            <mat-option value="other">Other</mat-option>
+          </mat-select>
+
+          <!-- ✅ ERROR -->
+          <mat-error *ngIf="gender.errors?.['required']">
+            Gender is required
+          </mat-error>
+
+        </mat-form-field>
+
+      </div>
+
+    </div>
+  </mat-card>
+
+
+
+  <div class="payment">
+
+        <button class="continues" (click)="onContinueToPayment()"  [disabled]="!contactDetails.mobile || mobile.invalid || email.invalid ||
+  selectedSeats.some(s => !s.passengerName || !s.gender)">
+      Continue To Payment
+    </button>
+  </div>
+
+
+
+
+</div>

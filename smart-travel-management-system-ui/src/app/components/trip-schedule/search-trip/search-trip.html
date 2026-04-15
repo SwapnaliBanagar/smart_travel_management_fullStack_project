@@ -1,0 +1,86 @@
+<div id="tripNav">
+    <div class="item">
+        <input type="text" [(ngModel)]="source" placeholder="Source">
+    </div>
+
+
+    <div class="item">
+        <input type="text" [(ngModel)]="destination" placeholder="Destination">
+    </div>
+
+
+    <div class="item">
+        <input type="date" [(ngModel)]="tripDate">
+    </div>
+
+
+    <div class="search" (click)="searchTripSchedule()">
+        Search
+    </div>
+</div>
+
+
+
+<div class="mainContainer">
+    <!-- <div class="filterSection">
+        <h3>Filters</h3>
+        <p>Bus Type</p>
+        <div class="filterBox">AC</div>
+        <div class="filterBox">Seater</div>
+        <div class="filterBox">Sleeper</div>
+        <div class="filterBox">Non AC</div>
+        <br>
+        <p>Price Range</p>
+        <div>500</div>
+        <div>1000</div>
+        <div>1500</div>
+        <div>2000</div>
+        <br>
+
+    </div> -->
+
+    <div class="busSection">
+        <div *ngFor="let trip of trips">
+
+            <mat-card class="busCard">
+                <!-- left session-->
+                <div class="busLeft">
+                    <h3>{{trip.travel.travelName}}</h3>
+                    <p>{{trip.travel.travelNumber}}</p>
+                    <p>{{trip.travel.busType}}/{{trip.travel.seatType}}</p>
+
+                </div>
+
+                <!-- middele session-->
+                <div class="busMiddle">
+                    <div class="timeBlock">
+                        <h3>15:30</h3>
+                        <p>{{trip.source}}</p>
+                    </div>
+
+
+                    <p class="material-icons">arrow_right_alt</p>
+
+                    <div class="timeBlock">
+                        <h3>10:00</h3>
+                        <p>{{trip.destination}}</p>
+                    </div>
+                </div>
+
+
+                <!-- Right session-->
+                <div class="busRight">
+                    <h3>Price</h3>
+                    <p>{{ trip.sleeperSeatPrice > 0 ? trip.sleeperSeatPrice : trip.seaterSeatPrice }}</p>
+                </div>
+
+                <!-- select seat-->
+                <div class="seats">
+                    <button (click)="openSelectSeatPage(trip)">Select Seats</button>
+                </div>
+            </mat-card>
+
+            
+        </div>
+    </div>
+</div>

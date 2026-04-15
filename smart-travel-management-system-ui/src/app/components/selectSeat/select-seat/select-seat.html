@@ -1,0 +1,168 @@
+<div class="selectSeatMain">
+
+    <div class="tripDetails" *ngIf="travelDto">
+        <div class="items">
+            <h4>Travel</h4>
+            <p>{{travelDto.travelName}} ({{travelDto.travelNumber}})</p>
+        </div>
+        <div class="items">
+            <h4>Source</h4>
+            <p>{{ tripDto.source }}</p>
+        </div>
+        <div class="items">
+            <h4>To</h4>
+            <p>➔</p>
+        </div>
+        <div class="items">
+            <h4>Destination</h4>
+            <p>{{ tripDto.destination }}</p>
+        </div>
+        <div class="items">
+            <h4>Date</h4>
+            <p>{{ tripDto.tripDate }}</p>
+        </div>
+    </div>
+
+
+
+    <div class="seatsAndPoint">
+
+        <!---- seats layout -->
+        <div class="seatLayout">
+            <div class="lowerSeats">
+                <p>Lower</p>
+                <!--  <p>LowerSeater:{{lowerSeaterCount.length}}----LowerSleeper:{{lowerSleeperCount.length}}</p> -->
+                <div class="seatGrid" *ngIf="lowerSeaterCount.length>0"
+                    [ngStyle]="{'grid-template-columns': 'repeat(' + columnCount + ', 60px)'}">
+                    <div class="seat" *ngFor="let seat of lowerSeaterCount"
+                        [title]="'Seat: ' + seat.seatNumber + '    SeaterSeatPrice: ₹' + tripDto.seaterSeatPrice" (click)="toggleSeat(seat)"
+                        [class.selected]="isSeatSelected(seat)" [class.booked]="seat.status === 'BOOKED'">
+                        {{seat.status}}
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="sleeperGrid" *ngIf="lowerSleeperCount.length > 0"
+                    [ngStyle]="{'grid-template-columns': 'repeat(' + columnCountUpper + ', 100px)'}">
+                    <!-- <p>Lower Sleeper</p> -->
+                    <div class="sleeper" *ngFor="let seat of lowerSleeperCount"
+                        [title]="'Seat: ' + seat.seatNumber + '    SleeperSeatPrice: ₹' + tripDto.sleeperSeatPrice" (click)="toggleSeat(seat)"
+                        [class.selected]="isSeatSelected(seat)" [class.booked]="seat.status === 'BOOKED'">
+                        {{seat.status}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="upperSeats">
+                <p>Upper</p>
+                <!-- <p>UpperSeater:{{upperSeaterCount.length}}----UpperSleeper:{{upperSleeperCount.length}}</p> -->
+                <div class="seatGrid" *ngIf="upperSeaterCount.length>0"
+                    [ngStyle]="{'grid-template-columns': 'repeat(' + columnCount + ', 60px)'}">
+                    <!-- <p>Upper Seater</p> -->
+                    <div class="seat" *ngFor="let seat of upperSeaterCount"
+                        [title]="'Seat: ' + seat.seatNumber + '    SeaterSeatPrice: ₹' + tripDto.seaterSeatPrice" (click)="toggleSeat(seat)"
+                        [class.selected]="isSeatSelected(seat)" [class.booked]="seat.status === 'BOOKED'">
+                        {{seat.status}}
+                    </div>
+                </div>
+
+
+                <div class="sleeperGrid" *ngIf="upperSleeperCount.length>0"
+                    [ngStyle]="{'grid-template-columns': 'repeat(' + columnCountUpper + ', 100px)'}">
+                    <!-- <p>Upper Sleeper</p> -->
+                    <div class="sleeper" *ngFor="let seat of upperSleeperCount"
+                        [title]="'Seat: ' + seat.seatNumber + '    SleeperSeatPrice: ₹' + tripDto.sleeperSeatPrice" (click)="toggleSeat(seat)"
+                        [class.selected]="isSeatSelected(seat)" [class.booked]="seat.status === 'BOOKED'">
+                        {{seat.status}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!---- points layout -->
+        <div class="pointsContainer">
+
+            <!-- Tabs -->
+            <div class="pointsLayout">
+                <div class="tab" [ngClass]="{'activeTab': activeTab === 'boarding'}" (click)="setActive('boarding')"
+                    [class.active]="activeTab === 'boarding'">
+                    Boarding Points
+                </div>
+
+                <div class="tab" [ngClass]="{'activeTab': activeTab === 'dropping'}" (click)="setActive('dropping')"
+                    [class.active]="activeTab === 'dropping'">
+                    Dropping Points
+                </div>
+
+            </div>
+
+            <!--  points status change form here  -->
+
+            <!-- for Boarding points -->
+            <div *ngIf="activeTab==='boarding'" class="scrollContainer">
+                <div class="pointRow" *ngFor="let stop of stopsArray">
+                    <input type="radio" name="boardingPoint" [value]="stop" [(ngModel)]="selectedBoardingPoint"
+                        (change)="onSelectBoardingPoint(stop)">
+                    <div class="placeTime">
+                        <div class="place">{{stop.place}}</div>
+                        <div class="time">{{stop.time}}</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- for Dropping points -->
+            <div *ngIf="activeTab==='dropping'" class="scrollContainer">
+                <div class="pointRow" *ngFor="let stop of stopsArray; let i = index">
+                    <ng-container *ngIf="i !== 0">
+                        <input type="radio" name="droppingPoint" [value]="stop" [(ngModel)]="selectedroppingPoint"
+                            (change)="onselectedroppingPoint(stop)">
+                        <div class="placeTime">
+                            <div class="place">{{stop.place}}</div>
+                            <div class="time">{{stop.time}}</div>
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="error-messages" *ngIf="!isBusFull">
+
+        <p *ngIf="selectedSeats.length === 0" style="color: red;">
+            * Please select at least one seat.
+        </p>
+
+        <p *ngIf="!selectedBoardingPoint" style="color: red;">
+            * Please select a boarding point.
+        </p>
+
+        <p *ngIf="!selectedroppingPoint" style="color: red;">
+            * Please select a dropping point.
+        </p>
+
+    </div>
+
+    <div class="backAndContinueButton">
+                    <button class="backButton" 
+                     (click)="backButtonClick()"  [disabled]="isBusFull"
+                    >Back</button>
+
+        <button class="continues"
+            [disabled]="selectedSeats.length === 0 || !selectedBoardingPoint || !selectedroppingPoint"
+            (click)="continueToBooking()">
+            Continue to Booking</button>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+/* Full page center */
+.successMain {
+    background-color: #f5f7fa;
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    /* border: 1px solid #ccc; */
+}
+
+.ticket {
+    border: 1px solid #ccc;
+    background-color: white;
+    padding: 20px 40px;
+    /* width: 50%; */
+    max-width: 800px;
+    justify-content: center;
+    justify-items: center;
+}
+
+.finalTicket {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 grid */
+    justify-items: start;
+    align-items: center;
+
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.grid-item {
+    padding: 10px 15px;
+}
+
+.title {
+    color: rgb(37, 36, 36);
+    font-weight: 550;
+}
+
+.value {
+    color: rgb(101, 99, 99);
+    font-weight: 450;
+    font-family: cursive;
+}
+
+/* ---------------------  passengerDetails  -------------------- */
+.passengerDetails {
+    margin-top: 20px;
+    padding: 10px 15px;
+    text-align: center;
+    justify-items: center;
+}
+
+.passenger-table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background: #fff;
+}
+
+.passenger-table th,
+.passenger-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.passenger-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}

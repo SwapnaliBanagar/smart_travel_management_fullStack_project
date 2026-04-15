@@ -1,0 +1,232 @@
+.tripDetails {
+    background-color: #f2acac;
+    display: flex;
+    justify-content: space-around;
+ }
+
+.items {
+    align-items: center;
+    justify-content: center;
+}
+
+.items h4 {
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 0px;
+
+}
+
+.items p {
+    margin-top: 0px;
+}
+
+/* --------------------------------------------------------- */
+
+.seatsAndPoint {
+    display: flex;
+    gap: 10px;
+    margin: 10px 60px;
+    justify-content: center;
+}
+
+.seatLayout {
+    background-color: #fff;
+    width: 50%;
+}
+
+.lowerSeats {
+    padding: 0px 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.upperSeats {
+    padding: 0px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+
+
+.seatGrid {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 10px 20px;
+    justify-content: center;
+    padding: 10px 20px;
+}
+
+.seat {
+    width: 50px;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    line-height: 35px;
+    background: #ffffff;
+    font-size: 6px;
+}
+
+/* sleeper layout */
+.sleeperGrid {
+    display: grid;
+    grid-auto-flow: row;
+    gap: 10px 45px;
+    justify-content: center;
+    justify-items: center;
+    padding: 10px 20px;
+
+}
+
+
+.sleeper {
+    width: 140px;
+    height: 35px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    line-height: 35px;
+    background-color: #fff;
+    font-size: 12px;
+}
+
+
+.seat:hover,
+.sleeper:hover {
+    background-color: #fff;
+    color: rgb(15, 15, 15);
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+
+/* When the seat is selected */
+.selected {
+    background-color: #28a745 !important;
+       color: white;
+    border-color: #1e7e34;
+}
+
+/* When the seat is already booked/unavailable */
+.booked {
+    background-color: #e0e0e0 !important;
+    color: #999;
+    cursor: not-allowed;
+    pointer-events: none;
+    /* Disables click */
+}
+
+
+/* --------------------------------------------------------------------------------- */
+.pointsContainer {
+    background-color: #f5f3f3;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+
+
+.pointsLayout {
+    background-color: #fff;
+    display: flex;
+    gap: 50px;
+    padding: 20px 50px;
+
+    font-weight: 500;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.tab {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.activeTab {
+    border-bottom: 3px solid black;
+    /* underline */
+    font-weight: 600;
+}
+
+
+.scrollContainer {
+    max-height: 300px;
+    /* ✅ control height */
+    overflow-y: auto;
+    /* ✅ scrollbar when overflow */
+    padding-right: 5px;
+    /* optional spacing */
+    scrollbar-width: none;
+    /*hide scrollbar*/
+}
+
+
+.pointRow {
+    display: flex;
+    align-items: center;
+    /* ✅ THIS FIXES ALIGNMENT */
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.pointRow input[type="radio"] {
+    margin-top: 2px;
+    /* small adjustment */
+}
+
+.placeTime {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+.place {
+    max-width: 70%;
+    /* ✅ fixed area */
+    word-wrap: break-word;
+    /* ✅ long text goes down */
+    font-weight: 500;
+    /* padding-left: 20px; */
+
+}
+
+.time {
+    min-width: 60px;
+    /* ✅ fixed width */
+    text-align: right;
+    font-weight: 600;
+}
+
+
+/* ------------------------------------------------------------------------- */
+
+.backAndContinueButton {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap:20px;
+    padding-bottom: 10px;
+   }
+ 
+   button {
+   padding:10px;
+   font-weight: 700;
+   border-radius: 3px;
+} 
+.backButton:hover
+{
+    background-color: #e6f578;
+    cursor: pointer;
+}
+.continues:not(:disabled):hover
+{
+    background-color: rgba(132, 242, 132, 0.816);
+    cursor: pointer; 
+}

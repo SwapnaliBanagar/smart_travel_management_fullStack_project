@@ -1,0 +1,145 @@
+#tripNav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 10px auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    gap: 1px;
+    background-color: white;
+}
+
+.item {
+    flex: 1;
+    padding: 20px;
+    background: white;
+    border-right: 1px solid #ddd;
+    font-size: 16px;
+    text-align: center;
+}
+
+.item input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    width: 100%;
+}
+
+
+
+.search {
+    padding: 20px 40px;
+    background: #d84a4a;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ------------------------------------------------------------- */
+
+.mainContainer {
+    display: flex;
+    width: 100%;
+    background-color: #e4e4e7;
+    /* height: 100vh; */
+    height: 80vh;
+    justify-content: center;
+
+}
+
+/* ------------------------------------------------------------- */
+
+.filterSection {
+    width: 10%;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    height: 60vh;
+}
+
+/* ------------------------------------------------------------- */
+
+.busSection {
+    width: 60%;
+    margin: 20px 0px 20px 20px;
+    overflow-y: auto;
+    /* Hide scrollbar for Chrome*/
+    scrollbar-width: none;
+    /* background-color: #d84a4a; */
+    }
+
+
+
+.busCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.noMargin {
+    margin-bottom: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+
+
+.busLeft h3 {
+    margin: 0;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    font-style: italic;
+}
+
+.busLeft p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 10px;
+}
+
+
+
+.busMiddle {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+}
+
+.timeBlock h3 {
+    margin: 0;
+    font-size: 15px;
+}
+
+.timeBlock p {
+    margin-top: 7px;
+    color: gray;
+}
+
+
+.busRight h3 {
+    margin: 0;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    font-style: italic;
+
+}
+
+.busRight p {
+    margin-top: 7px;
+    color: rgb(12, 12, 12);
+}
+
+.seats button {
+    background-color: #f5ee36;
+    padding: 5px;
+    border-radius: 4px;
+}
+

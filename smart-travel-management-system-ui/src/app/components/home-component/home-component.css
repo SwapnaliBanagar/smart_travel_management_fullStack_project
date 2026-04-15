@@ -1,0 +1,29 @@
+
+
+/* ------------ */
+
+#bg-image {
+    /* background-image: url('/assets/home-bg-image.png'); */
+    background-image: url('/assets/allTravels.png');
+    background-size: cover;
+     min-height: 90vh;
+}
+
+
+.homePageButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    gap: 40px;
+}
+
+mat-form-field
+{
+    /* background-color: pink; */
+    padding-top: 20px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
