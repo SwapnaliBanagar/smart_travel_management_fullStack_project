@@ -4,7 +4,7 @@
 
 #bg-image {
     /* background-image: url('/assets/home-bg-image.png'); */
-    background-image: url('/assets/allTravels.png');
+    /* background-image: url('assets/allTravels.png'); */
     background-size: cover;
      min-height: 90vh;
 }
