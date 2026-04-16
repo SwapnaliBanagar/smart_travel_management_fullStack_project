@@ -9,7 +9,8 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/paypal")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://swapnalibanagar.github.io")
 public class PaypalController {
     @Autowired
     PaypalService paypalService;

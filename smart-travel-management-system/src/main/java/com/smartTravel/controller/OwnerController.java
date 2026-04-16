@@ -11,7 +11,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/owner")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://swapnalibanagar.github.io")
 public class OwnerController {
     @Autowired
     OwnerService ownerService;

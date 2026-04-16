@@ -11,7 +11,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/travel")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://swapnalibanagar.github.io")
 public class TravelController {
     @Autowired
     TravelService travelService;

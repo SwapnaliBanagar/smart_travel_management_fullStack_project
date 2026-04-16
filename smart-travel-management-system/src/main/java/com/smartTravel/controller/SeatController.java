@@ -10,7 +10,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/seats")
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://swapnalibanagar.github.io")
 public class SeatController {
     @Autowired
     SeatService seatService;
