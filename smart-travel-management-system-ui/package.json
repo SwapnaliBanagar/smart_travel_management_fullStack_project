@@ -6,8 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-"build:gh": "ng build --base-href /smart_travel_management_system_project/ && xcopy docs\\browser\\* docs\\ /E /H /Y"
+    "test": "ng test"
   },
   "prettier": {
     "printWidth": 100,
@@ -37,7 +36,7 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@angular/build": "^21.0.3",
+    "@angular-devkit/build-angular": "^21.2.0",
     "@angular/cli": "^21.0.3",
     "@angular/compiler-cli": "^21.0.0",
     "@angular/material": "^21.2.0",
