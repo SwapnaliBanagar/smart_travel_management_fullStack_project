@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+"build:gh": "ng build --base-href /smart_travel_management_system_project/ && xcopy docs\\browser\\* docs\\ /E /H /Y"
   },
   "prettier": {
     "printWidth": 100,
