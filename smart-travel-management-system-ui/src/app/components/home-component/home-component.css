@@ -2,7 +2,7 @@
 
 /* ------------ */
 
-#bg-image {
+.bg-image {
     background-image: url('/assets/allTravels.png');
     background-size: cover;
      min-height: 90vh;
