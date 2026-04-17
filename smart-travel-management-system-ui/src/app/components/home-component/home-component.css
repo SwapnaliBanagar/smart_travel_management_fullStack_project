@@ -4,7 +4,7 @@
 
 #bg-image {
     /* background-image: url('/assets/home-bg-image.png'); */
-    background-image: url('/smart_travel_management_fullStack_project/assets/allTravels.png');
+    background-image: url('public/assets/allTravels.png');
     background-size: cover;
      min-height: 90vh;
 }
