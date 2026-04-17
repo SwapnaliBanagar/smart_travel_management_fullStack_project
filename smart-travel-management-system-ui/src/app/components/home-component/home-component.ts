@@ -9,12 +9,13 @@ import { MatInputModule } from '@angular/material/input';
 import { Router, RouterModule } from '@angular/router';
 import { CustomDateFormat } from '../../shared/custom-date-format';
 import { DD_MM_YYYY_FORMATS } from '../../shared/dd-mm-yyyy-formats';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home-component',
   standalone: true,
   imports: [
-    RouterModule, FormsModule, MatInputModule,
+    RouterModule, FormsModule, MatInputModule,CommonModule,
     MatIconModule,
     MatFormFieldModule,
     MatButtonModule, MatDatepickerModule,
