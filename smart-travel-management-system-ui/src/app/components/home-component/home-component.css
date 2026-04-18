@@ -1,11 +1,9 @@
-
-
 /* ------------ */
 
 .bg-image {
-    background-image: url('/assets/allTravels.png');
+    background-image: url('../../../../public/assets/allTravels.png');
     background-size: cover;
-     min-height: 90vh;
+    min-height: 90vh;
 }
 
 
@@ -17,8 +15,7 @@
     gap: 41px;
 }
 
-mat-form-field
-{
+mat-form-field {
     /* background-color: pink; */
     padding-top: 20px;
     border: none;
